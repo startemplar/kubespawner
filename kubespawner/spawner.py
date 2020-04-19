@@ -1446,7 +1446,8 @@ class KubeSpawner(Spawner):
             'component': 'singleuser-storage'
         })
 
-        annotations = self._build_common_annotations({})
+        # annotations = self._build_common_annotations({})
+        annotations = self._build_common_annotations(self._expand_all(self.extra_annotations))
 
         return make_pvc(
             name=self.pvc_name,
